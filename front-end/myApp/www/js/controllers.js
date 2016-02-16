@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('login', function($scope, $ionicModal, $timeout) {
+.controller('userSignUpLogin', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -13,11 +13,6 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   // LOGIN MODAL
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
@@ -26,7 +21,12 @@ angular.module('starter.controllers', [])
 
   // Open the login modal
   $scope.login = function() {
-    $scope.modal.show();
+    $ionicModal.fromTemplateUrl('templates/login.html', {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
   };
 
   // Perform the login action when the user submits the login form
@@ -44,18 +44,19 @@ angular.module('starter.controllers', [])
 
   $scope.signUpData = {};
   // SIGNUP MODAL
-  $ionicModal.fromTemplateUrl('templates/signup.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+
 
   $scope.closeSignUp = function() {
     $scope.modal.hide();
   };
 
   $scope.signUp = function() {
-    $scope.modal.show();
+    $ionicModal.fromTemplateUrl('templates/signup.html', {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
   };
 
   // Perform the login action when the user submits the login form

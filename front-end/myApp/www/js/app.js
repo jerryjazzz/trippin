@@ -36,12 +36,19 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/homepage.html',
-          controller: 'login'
+          controller: 'userSignUpLogin'
         }
       }
     })
 
-
+    .state('app.restaurants', {
+      url: '/restaurants',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/restaurants.html'
+        }
+      }
+    })
 
 
 
