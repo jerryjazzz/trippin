@@ -1,8 +1,13 @@
 var express = require('express');
 var app = express();
+var yelpController = require("./controllers/yelpController")
 
-app.get('/', function(req, res){
-  res.send('hello world');
-});
+var Yelp = require('yelp');
+
+// helps with yelp api
+
+
+app.get('/', yelpController.yelpSearch);
+
 
 app.listen(3000);
