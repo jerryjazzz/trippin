@@ -2,13 +2,17 @@ angular.module('starter.controllers', [])
 
 .controller('restaurants_api', function($scope, $http) {
 
+  // $scope.data = [];
+
   $http.get("http://localhost:3000/", {
 
   }).then(function(data){
-    console.log(data)
+    $scope.data = data.data
+  console.log($scope.data[0].rating_img_url_small)
   }).catch(function(error){
     console.log(error)
   })
+
 })
 
 

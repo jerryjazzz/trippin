@@ -1,3 +1,11 @@
 <ion-view>
-  <h1>restaurants</h1>
+  <ion-content>
+    <h1>Restaurants</h1>
+    <label class="item item-input">
+      <textarea placeholder="Location"></textarea>
+    </label>
+    <ion-item collection-repeat="item in data">
+    <h3>{{item.name}}</h3> <p><img src={{item.rating_img_url_large}}></p>
+  </ion-item>
+  </ion-content>
 </ion-view>
