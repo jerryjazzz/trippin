@@ -9,6 +9,15 @@
 /* END OF GENERAL CSS */
 
 
+/* NAVBAR */
+
+.transparent {
+  background-color: transparent;
+  z-index: 2;
+}
+
+/* END OF NAVBAR */
+
 
 /* HOME PAGE */
 .scroll-bg {
@@ -29,6 +38,7 @@
 #homepage {
   color: white;
   text-align: center;
+
 }
 
 #homepage h1 {

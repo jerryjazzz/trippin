@@ -29,20 +29,22 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
   })
-
-
 
     .state('app.homepage', {
       url: '/homepage',
       views: {
         'menuContent': {
           templateUrl: 'templates/homepage.html',
-          // controller: 'PlaylistsCtrl'
+          controller: 'login'
         }
       }
-    });
+    })
+
+
+
+
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/homepage');
 });
