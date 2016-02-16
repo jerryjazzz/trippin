@@ -1,5 +1,24 @@
 angular.module('starter.controllers', [])
 
+.controller('restaurants_api', function($scope, $http) {
+
+  $http.get("https://api.yelp.com/v2/search/?location=San Francisco, CA", {
+    params: {
+      oauth_consumer_key: "KeFJrAAbS7U8zFkAJ_fKtg",
+      oauth_token: "J2fDylNmcrbkXIcFyavjPA6WngOUhheV",
+      oauth_signature_method: "HMAC-SHA1",
+      oauth_signature: "rzfTOC4ZWg5XfB4qXw3tPaZ9FN0",
+      oauth_timestamp: "1455651330",
+      oauth_nonce: "6XnbKy0aCBw"
+    }
+  }).success(function(data){
+    console.log(data)
+  }).error(function(error){
+    console.log(error)
+  })
+})
+
+
 .controller('userSignUpLogin', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
@@ -39,9 +58,6 @@ angular.module('starter.controllers', [])
     }, 1000);
   }
 
-
-
-
   $scope.signUpData = {};
   // SIGNUP MODAL
 
@@ -68,5 +84,8 @@ angular.module('starter.controllers', [])
       $scope.closeSignUp();
     }, 1000);
   };
-
 })
+
+
+
+

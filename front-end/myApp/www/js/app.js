@@ -45,7 +45,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/restaurants',
       views: {
         'menuContent': {
-          templateUrl: 'templates/restaurants.html'
+          templateUrl: 'templates/restaurants.html',
+          controller: 'restaurants_api'
+        }
+      }
+    })
+
+    .state('app.hotels', {
+      url: '/hotels',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/hotels.html',
+
         }
       }
     })
