@@ -14,7 +14,7 @@ var config = require("../config")
 module.exports = {
   yelpSearch: function (req, res, next) {
 // console.log(searchData)
-    yelp.search({ term: 'food', location: req.body.location })
+    yelp.search({ term: req.body.term, location: req.body.location })
       .then(function (data) {
         res.json(data);
       })

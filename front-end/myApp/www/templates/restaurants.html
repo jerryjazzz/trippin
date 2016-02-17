@@ -2,12 +2,22 @@
   <ion-content>
     <h1>Restaurants</h1>
 
-      <div class="list list-inset">
-        <form class="item item-input" ng-submit="locationSearch(location)">
+
+<form ng-submit="locationSearch(location, term)">
+  <div class="list list-inset">
+    <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search" ng-model="location">
-        </form>
-      </div>
+          <input type="text" placeholder="Food, Restaurants, Tacos, etc..." ng-model="term">
+    </label>
+    <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Location" ng-model="location">
+    </label>
+  </div>
+          <button class="button button-block button-positive">Search Your Area</button>
+</form>
+
+
 
     <ion-item collection-repeat="item in data">
       <a class="item item-thumbnail-left" href={{item.mobile_url}} >

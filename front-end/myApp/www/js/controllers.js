@@ -2,15 +2,17 @@ angular.module('starter.controllers', [])
 
 .controller('restaurants_api', function($scope, $http) {
 
-  // $scope.data = [];
+
   $scope.location = "";
-  $scope.locationSearch = function (location) {
+  $scope.term = "";
+  $scope.locationSearch = function (location, term) {
       var searchData = {
-        location: location
+        location: location,
+        term: term
       }
 
     $http.post("http://localhost:3000/", searchData).then(function(data) {
-        console.log(data)
+        console.log(searchData)
         $scope.data = data.data.businesses
       }, function (error) {
         console.log(error)
