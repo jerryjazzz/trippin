@@ -1,11 +1,17 @@
 <ion-view>
   <ion-content>
     <h1>Restaurants</h1>
-    <label class="item item-input">
-      <textarea placeholder="Location"></textarea>
-    </label>
+
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search">
+        </label>
+      </div>
+
     <ion-item collection-repeat="item in data">
-    <h3>{{item.name}}</h3> <p><img src={{item.rating_img_url_large}}></p>
-  </ion-item>
+      <h3>{{item.name}}</h3>
+      <p><img src={{item.rating_img_url_large}}></p>
+    </ion-item>
   </ion-content>
 </ion-view>
