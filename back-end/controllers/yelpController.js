@@ -9,15 +9,14 @@ var config = require("../config")
   token_secret: config.TOKEN_SECRET,
   })
   // console.log(yelp)
+
+
 module.exports = {
-
-
-
   yelpSearch: function (req, res, next) {
 // console.log(searchData)
-    yelp.search({ term: 'food', location: 'Los Angeles' })
+    yelp.search({ term: 'food', location: req.body.location })
       .then(function (data) {
-        console.log(data);
+        res.json(data);
       })
       .catch(function (err) {
         console.error(err);

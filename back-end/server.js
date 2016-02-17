@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.get('/', yelpController.yelpSearch);
+app.post('/', yelpController.yelpSearch)
 
 
 app.listen(3000);
