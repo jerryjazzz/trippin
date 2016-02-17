@@ -3,15 +3,22 @@ angular.module('starter.controllers', [])
 .controller('restaurants_api', function($scope, $http) {
 
   // $scope.data = [];
+  $scope.location = "";
+  $scope.locationSearch = function (location) {
+      var searchData = {
+        term: 'food',
+        location: location
+      }
 
-  $http.get("http://localhost:3000/", {
+    // $http.get("http://localhost:3000/" {
+    // }).then(function(data){
+    //   $scope.data = data.data
+    // console.log($scope.data[0])
+    // }).catch(function(error){
+    //   console.log(error)
+    // })
+  }
 
-  }).then(function(data){
-    $scope.data = data.data
-  console.log($scope.data[0].rating_img_url_small)
-  }).catch(function(error){
-    console.log(error)
-  })
 
 })
 

@@ -3,15 +3,21 @@
     <h1>Restaurants</h1>
 
       <div class="list list-inset">
-        <label class="item item-input">
+        <form class="item item-input" ng-submit="locationSearch(location)">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search">
-        </label>
+          <input type="text" placeholder="Search" ng-model="location">
+        </form>
       </div>
 
     <ion-item collection-repeat="item in data">
-      <h3>{{item.name}}</h3>
-      <p><img src={{item.rating_img_url_large}}></p>
+      <a class="item item-thumbnail-left" href={{item.mobile_url}} >
+        <img src={{item.image_url}}>
+        <h3>{{item.name}}</h3>
+        <p><img src={{item.rating_img_url_small}}></p>
+      </a>
+
+
+
     </ion-item>
   </ion-content>
 </ion-view>
