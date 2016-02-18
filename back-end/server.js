@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var yelpController = require("./controllers/yelpController")
+var flightController = require("./controllers/flightController")
 var bodyParser = require('body-parser')
 
 
@@ -15,6 +16,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/', yelpController.yelpSearch)
+
+app.get('/flights', flightController.flightSearch)
 
 
 app.listen(3000);

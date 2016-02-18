@@ -5,6 +5,9 @@
 @import url(https://fonts.googleapis.com/css?family=Arizonia);
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 
+.center {
+  text-align: center;
+}
 
 /* END OF GENERAL CSS */
 
@@ -76,4 +79,6 @@
 }
 
 /* END OF HOME PAGE */
+
+
 

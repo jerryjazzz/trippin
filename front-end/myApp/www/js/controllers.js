@@ -20,6 +20,38 @@ angular.module('starter.controllers', [])
   }
 })
 
+.controller('flights_api', function($scope, $http) {
+
+      $scope.origin = "";
+      $scope.destination = "";
+      $scope.departureDate = "";
+      $scope.returnDate = "";
+      $scope.adult = "";
+      $scope.child = "";
+      $scope.infant = "";
+
+  $scope.flightSearch = function (origin, destination, departureDate, returnDate, adult, child, infant) {
+
+      var flightData = {
+        origin: origin,
+        destination: destination,
+        departure: departureDate,
+        return: returnDate,
+        adult: adult,
+        child: child,
+        infant: infant
+      }
+
+    $http.post("http://localhost:3000/flights", flightData).then(function(data) {
+        console.log(data.data.results)
+        console.log(flightData)
+        $scope.data = data.data.results
+      }, function (error) {
+        console.log(error)
+      })
+  }
+})
+
 
 .controller('userSignUpLogin', function($scope, $ionicModal, $timeout) {
 
