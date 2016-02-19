@@ -1,7 +1,7 @@
 <snippet>
-  <content><![CDATA[
-# ${1:Trippin}
-TODO: Write a project description
+  <content>
+# Trippin
+TODO: Add Hotel, Destination, User Features
 ## Installation
 TODO: Describe the installation process
 ## Usage
