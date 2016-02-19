@@ -21,5 +21,19 @@ module.exports = {
       .catch(function (err) {
         console.error(err);
       });
+  },
+
+  yelpSearchById: function (req, res, next) {
+    yelp.business(req.body.restaurant_id)
+      .then(function (data) {
+        console.log(data)
+        res.json(data);
+      })
+      .catch(function (err) {
+        console.log(req.body.restaurant_id)
+        console.log(err);
+    });
+
   }
+
 }

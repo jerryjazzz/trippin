@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/', yelpController.yelpSearch)
+app.post('/yelpSearch', yelpController.yelpSearchById)
 
 app.get('/flights', flightController.flightSearch)
 

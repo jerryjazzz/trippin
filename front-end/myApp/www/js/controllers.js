@@ -1,10 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('restaurants_api', function($scope, $http) {
+.controller('restaurants_api', function($scope, $http, $stateParams, $state) {
 
 
-  $scope.location = "";
-  $scope.term = "";
+  $scope.singleRestaurant = false;
+  $scope.location = "los angeles";
+  $scope.term = "food";
   $scope.locationSearch = function (location, term) {
       var searchData = {
         location: location,
@@ -12,12 +13,28 @@ angular.module('starter.controllers', [])
       }
 
     $http.post("http://localhost:3000/", searchData).then(function(data) {
-        console.log(searchData)
+        console.log(data.data)
         $scope.data = data.data.businesses
       }, function (error) {
         console.log(error)
       })
+  },
+
+  $scope.id = "";
+  $scope.findRestaurant = function (id) {
+      var yelpId = {
+        restaurant_id: id
+      }
+    $http.post("http://localhost:3000/yelpSearch/", yelpId).then(function(data) {
+      console.log(data.data)
+      $scope.restaurantData = data.data
+    }, function (error) {
+      console.log(error)
+    })
+    $scope.singleRestaurant = true;
   }
+
+
 })
 
 .controller('flights_api', function($scope, $http) {
@@ -30,23 +47,23 @@ angular.module('starter.controllers', [])
       $scope.child = "";
       $scope.infant = "";
 
-  $scope.flightSearch = function (origin, destination, departureDate, returnDate, adult, child, infant) {
+  $scope.flightSearch = function (origin) {
 
       var flightData = {
-        origin: origin,
-        destination: destination,
-        departure: departureDate,
-        return: returnDate,
-        adult: adult,
-        child: child,
-        infant: infant
+        origin: origin
+        // destination: destination,
+        // departure: departureDate,
+        // return: returnDate,
+        // adult: adult,
+        // child: child,
+        // infant: infant
       }
 
-    $http.post("http://localhost:3000/flights", flightData).then(function(data) {
+    $http.post("http://localhost:3000/flights/", flightData).then(function(data) {
         console.log(data.data.results)
-        console.log(flightData)
         $scope.data = data.data.results
       }, function (error) {
+        console.log(flightData)
         console.log(error)
       })
   }
