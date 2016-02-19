@@ -18,7 +18,7 @@ app.use(cors());
 app.post('/', yelpController.yelpSearch)
 app.post('/yelpSearch', yelpController.yelpSearchById)
 
-app.get('/flights', flightController.flightSearch)
+app.post('/flights', flightController.flightSearch)
 
 
 app.listen(3000);
