@@ -1,11 +1,18 @@
 angular.module('starter.controllers', [])
 
+.controller('refresher', function($scope, $http) {
+
+  $scope.doRefresh = function() {
+    setTimeout(function(){ window.location.reload() }, 1000);
+  };
+})
+
 .controller('restaurants_api', function($scope, $http, $stateParams, $state) {
 
 
   $scope.singleRestaurant = false;
-  $scope.location = "los angeles";
-  $scope.term = "food";
+  $scope.location = "";
+  $scope.term = "";
   $scope.locationSearch = function (location, term) {
       var searchData = {
         location: location,

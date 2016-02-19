@@ -1,28 +1,56 @@
 <ion-view>
   <ion-content>
-    <h1  class="center">Restaurants</h1>
+    <div ng-controller="refresher">
+      <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefresh()">
+      </ion-refresher>
+    </div>
+
+
+
+    <h1 class="center">Restaurants</h1>
+    <p class="center">pull to refresh</p>
 
     <div ng-if="singleRestaurant">
 
       <div class="list card">
 
-        <div class="item item-avatar">
-          <img src="mcfly.jpg">
-          <h3>{{restaurantData.name}}</h3>
-          <p>November 05, 1955</p>
+        <div class="item item-avatar row">
+          <div class="col">
+            <a href={{restaurantData.mobile_url}}><img src={{restaurantData.image_url}}></a>
+          </div>
+          <div class="col col-75">
+            <a href={{restaurantData.mobile_url}}><h1>{{restaurantData.name}}</h1></a>
+            <p><img src={{restaurantData.rating_img_url}}></p>
+            <p>Total Reviews: {{restaurantData.review_count}}</p>
+            <p>{{restaurantData.categories[0][0]}}</p>
+            <p>Phone# {{restaurantData.phone}}</p>
+          </div>
+        </div>
+
+        <div class="item item-avatar row">
+          <div class="col col-center">
+            <h2>Address</h2>
+          </div>
+          <div class="col col-75">
+            <p>{{restaurantData.location.address[0]}}</p>
+            <p>{{restaurantData.location.address[1]}}</p>
+            <p>{{restaurantData.location.city}}, {{restaurantData.location.state_code}}, {{restaurantData.location.postal_code}}</p>
+          </div>
         </div>
 
         <div class="item item-body">
-          <img class="full-image" src="delorean.jpg">
-          <p>
-            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-            the content is from a card-body consisting of an image and paragraph text. The footer
-            consists of tabs, icons aligned left, within the card-footer.
-          </p>
-          <p>
-            <a href="#" class="subdued">1 Like</a>
-            <a href="#" class="subdued">5 Comments</a>
-          </p>
+          <div class="row">
+            <div id="larger_avatar" class="item item-avatar col col-center">
+              <img src={{restaurantData.reviews[0].user.image_url}}>
+            </div>
+            <div class="col col-75">
+              <h3>{{restaurantData.reviews[0].user.name}}</h3>
+              <img src={{restaurantData.reviews[0].rating_image_small_url}}>
+              <p>"{{restaurantData.snippet_text}}"</p>
+            </div>
+          </div>
         </div>
 
       </div>

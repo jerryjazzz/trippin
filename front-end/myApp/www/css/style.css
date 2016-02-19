@@ -9,6 +9,10 @@
   text-align: center;
 }
 
+.larger_avatar img {
+  height: 100px !important;
+}
+
 /* END OF GENERAL CSS */
 
 
