@@ -54,17 +54,18 @@ angular.module('starter.controllers', [])
       $scope.child = "";
       $scope.infant = "";
 
-  $scope.flightSearch = function (origin) {
+  $scope.flightSearch = function (origin, destination, departureDate, returnDate, adult, child, infant) {
 
       var flightData = {
-        origin: origin
-        // destination: destination,
-        // departure: departureDate,
-        // return: returnDate,
-        // adult: adult,
-        // child: child,
-        // infant: infant
+        origin: origin,
+        destination: destination,
+        departure: departureDate,
+        return: returnDate,
+        adult: adult,
+        child: child,
+        infant: infant
       }
+      console.log(flightData)
 
     $http.post("http://localhost:3000/flights/", flightData).then(function(data) {
         console.log(data.data.results)
